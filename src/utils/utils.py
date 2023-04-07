@@ -32,7 +32,7 @@ def createDirs(liga:list, data_path:str):
         try:
             os.makedirs(d)
         except OSError:
-            print ("Creation of the directory %s failed" % liga)
+            print ("Creation of the directory %s failed" % d)
 
 def boolean_string(s):
     if s not in {'False', 'True'}:

@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 import config as CONFIG
+import numpy as np 
 
 def load_team_opponent(filename_main:str):
 
@@ -39,3 +40,37 @@ def split_date(df):
     else:
         print('Keine Spalte "Date" in Spalten vorhanden')
     return df
+
+def get_bookmaker(bm:str,df):
+    return [i for i in df.columns if bm in i]
+
+def derived_odds(sight:str,df:pd.DataFrame,odds:list):
+    return_df = pd.DataFrame()
+    return_df[f'Max_{sight}'] = df[odds].apply(max,axis=1)
+    return_df[f'Min_{sight}'] = df[odds].apply(min,axis=1)
+    return_df[f'Avg_{sight}'] = df[odds].apply(np.average,axis=1)
+
+    return_df[f'Span_{sight}'] = return_df[f'Max_{sight}']-return_df[f'Min_{sight}'] 
+    return_df[f'Ratio_{sight}'] = return_df[f'Max_{sight}']/return_df[f'Min_{sight}'] 
+    return return_df
+
+def set_dummies_div(df, cat, divs=[]):
+    if cat in df.columns:
+        if divs == []:
+            divs = list(set(df[cat]))
+        for d in divs:
+            df[d] = [1 if ele == d else 0 for ele in df[cat]]
+        df = df.drop(cat, axis=1)
+    return df
+
+def get_odd_pred(bet,df):
+    odd_team = df[bet+"_Team"]
+    odd_opponent = df[bet+"_Opponent"]
+    odd_draw = df[bet+"_Draw"]
+    sum_odds = odd_team + odd_opponent + odd_draw
+    odd_pred = pd.DataFrame(index=df.index)
+    odd_pred[bet+"_Team_odd_pred"]=odd_team/sum_odds
+    odd_pred[bet+"_opponent_odd_pred"]=odd_opponent/sum_odds
+    odd_pred[bet+"_Team_draw_pred"]=odd_draw/sum_odds
+    
+    return odd_pred
