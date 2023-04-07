@@ -12,10 +12,13 @@ JSON_FOLDER = OUT_FOLDER +  '/json/'
 PIC_FOLDER = OUT_FOLDER +  '/pic/'
 MODEL_FOLDER = OUT_FOLDER +  '/model/'
 
+
 # Data Folder
 DATA_FOLDER = ROOT_FOLDER + '/data/'
 DATA_FOLDER_RAW = DATA_FOLDER + '/raw/'
 DATA_FOLDER_PROCESSED = DATA_FOLDER +  '/processed/'
+DATA_FOLDER_MAPPING = DATA_FOLDER + '/mapping/'
+
 
 NUMBER_OF_GAMES = 3
 
