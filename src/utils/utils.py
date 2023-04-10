@@ -39,3 +39,24 @@ def boolean_string(s):
         raise ValueError('Not a valid boolean string')
     return s == 'True'
 
+import os
+
+def get_dir_structure(root_dir):
+    """
+    Recursively gets the entire directory structure of a project.
+    Returns a list of tuples, where the first element is the path to the directory,
+    and the second element is a list of the names of the files in that directory.
+    """
+    dir_structure = []
+    for dirpath, dirnames, filenames in os.walk(root_dir):
+        dir_structure.append((dirpath, filenames))
+    return dir_structure
+
+def create_dirs(dir_structure):
+    """
+    Creates all necessary directories based on the directory structure returned by get_dir_structure.
+    """
+    for dirpath, filenames in dir_structure:
+        for dirname in dirpath.split(os.sep):
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
