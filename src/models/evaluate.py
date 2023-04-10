@@ -1,9 +1,59 @@
 import pandas as pd 
 from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
                              precision_score, recall_score, roc_auc_score,
-                             roc_curve)
+                             roc_curve,classification_report)
 import numpy as np
 
+def custom_classification_report(X,y,model):
+    """ 
+    Erweitert Classification Report um AUC
+    """
+    y_pred = model.predict(X)
+    y_score = model.predict_proba(X)[:,1]
+    r = classification_report(y_pred=y_pred,y_true=y)
+    print(r)
+    print("AUC",np.round(roc_auc_score(y_true=y, y_score=y_score),3))
+
+
+def custom_lazy_report(X,y,lazy_clf):
+    """ 
+    Erweitert Classification Report um AUC
+    """
+
+    precision = {}
+    recall = {}
+    auc = {}
+    f_1 = {}
+    accuracy = {}
+    models = lazy_clf.models
+    for name, model_fit in models.items():
+        
+        y_pred = model_fit.predict(X)
+        try:
+            print(name)
+            y_proba =  model_fit.predict_proba(X)[:,1]
+        except:
+            
+            y_proba = model_fit.predict(X)
+        precision[name] = precision_score(y_pred=y_pred,y_true=y, average='micro')
+        recall[name] = recall_score(y_pred=y_pred,y_true=y, average='micro')
+        accuracy[name] = accuracy_score(y_pred=y_pred,y_true=y)
+        
+        try:
+            auc[name] = roc_auc_score(y, y_proba)
+            f_1[name]= f1_score(y_pred=y_pred,y_true=y)
+        except:
+            pass
+    
+    results = pd.DataFrame()
+    results['recall'] = pd.Series(recall)
+    results['precision'] = pd.Series(precision)
+    results['auc'] = pd.Series(auc)
+    results['f_1'] = pd.Series(f_1)
+    results['accuracy'] = pd.Series(accuracy)
+    return results.sort_values(['auc','f_1'],ascending=False)
+
+@ DeprecationWarning
 def evaluate_model(model, y_test, X_test, show=False,threshold=''):
     if threshold == '':
         y_pred = model.predict(X_test)
