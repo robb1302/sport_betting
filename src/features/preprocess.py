@@ -74,3 +74,46 @@ def get_odd_pred(bet,df):
     odd_pred[bet+"_Team_draw_pred"]=odd_draw/sum_odds
     
     return odd_pred
+
+
+import pandas as pd
+
+import pandas as pd
+
+import pandas as pd
+import numpy as np
+
+import pandas as pd
+
+def add_last_3_scores_column(df, score_column, home_or_away='general',anz_games = 3):
+    
+    new_column = f"{score_column}_last_{str(anz_games)}_games"
+    # Create a new column to hold the last 3 scores
+    df[new_column] = pd.Series(dtype='object')
+    
+    # Group the data by team and opponent
+    if home_or_away == 'home':
+        grouped = df[df['atHome'] == True].groupby(['Team', 'Opponent'])
+    elif home_or_away == 'away':
+        grouped = df[df['atHome'] == False].groupby(['Team', 'Opponent'])
+    else:
+        grouped = df.groupby(['Team', 'Opponent'])
+    
+    # Loop through each group and store a list of the last 3 scores
+    for name, group in grouped:
+        # Sort the group by date in descending order
+        #group = group.sort_values('Date', ascending=False)
+        
+        # Store a list of the last 3 scores
+        group[new_column] = group[score_column].rolling(window=3).mean().shift(1)
+
+        # Fill any missing values in the new column
+        group[new_column].fillna(method='ffill', inplace=True)
+        
+        # Update the new column in the original dataframe with the most recent score
+        df.update(group[new_column])
+        
+    return df
+
+
+
