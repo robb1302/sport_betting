@@ -131,3 +131,4 @@ dmypy.json
 # launch
 .vscode
 /data/raw/*
+/data/processed/*
