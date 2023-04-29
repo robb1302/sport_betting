@@ -13,6 +13,14 @@ def save_calc_pickle(calc, name):
     filename = saved_pickle_path+name+'.sav'
     pickle.dump(calc, open(filename, 'wb'))
 
+import pickle
+
+def save_as_pickle(obj, target_path):
+    # Save object as pickle file to target path
+    with open(target_path, 'wb') as target_file:
+        pickle.dump(obj, target_file)
+
+
 def load_calc_pickle(name):
     saved_pickle_path = CONFIG.SETTINGS_FOLDER
     calc = pickle.load(open(saved_pickle_path+name+'.sav', 'rb'))
