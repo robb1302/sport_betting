@@ -63,7 +63,7 @@ def set_dummies_div(df, cat, divs=[]):
         df = df.drop(cat, axis=1)
     return df
 
-def get_odd_pred(bet,df):
+def get_odd_pred_team_opponent(bet,df):
     odd_team = df[bet+"_Team"]
     odd_opponent = df[bet+"_Opponent"]
     odd_draw = df[bet+"_Draw"]

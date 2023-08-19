@@ -8,7 +8,7 @@ import config as CONFIG
 
 
 from src.features import load_team_opponent
-from src.features.preprocess import derived_odds,get_bookmaker, get_odd_pred, split_date,add_last_3_scores_column
+from src.features.preprocess import derived_odds,get_bookmaker, get_odd_pred_team_opponent, split_date,add_last_3_scores_column
 import numpy as np
 import pandas as pd
 
@@ -23,9 +23,9 @@ bet_on_team = get_bookmaker(bm='Team',df=df[bookmaker_attributes])
 bet_on_opponent = get_bookmaker(bm='Opponent',df=df[bookmaker_attributes])
 bet_on_draw = get_bookmaker(bm='Draw',df=df[bookmaker_attributes])
 
-df_derived_b365 = get_odd_pred(bet="B365",df=df)
-df_derived_iw = get_odd_pred(bet="IW",df=df)
-df_derived_bw = get_odd_pred(bet="BW",df=df)
+df_derived_b365 = get_odd_pred_team_opponent(bet="B365",df=df)
+df_derived_iw = get_odd_pred_team_opponent(bet="IW",df=df)
+df_derived_bw = get_odd_pred_team_opponent(bet="BW",df=df)
 
 df_derived_team = derived_odds(sight = 'Team',df=df, odds=bet_on_team)
 df_derived_opponent = derived_odds(sight = 'Opponent',df=df, odds=bet_on_opponent)

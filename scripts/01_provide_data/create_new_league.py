@@ -9,7 +9,7 @@ from src.data.download import downloadLeague
 
 
 LIGA = ["D1", "F1", "I1", "E0", "E1","E2","E3", "SP1", "D2", "F2", "SP2", "I2", "N1", "SC0", "B1", "P1", "T1", "G1"]
-SEASONS = ["1213","1314","1415","1516","1617","1718","1819","1920","2021","2122","2223"]
+SEASONS = ["2223"]
 
 for liga in CONFIG.MAIN_LEAGUES:
     createDirs(liga=liga, data_path=CONFIG.DATA_FOLDER_RAW)

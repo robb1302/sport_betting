@@ -1,54 +1,45 @@
 import sys
 import os
-parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')).replace('scripts','')
 sys.path.append(parent_dir)
 
-from src.utils.utils import createDirs
+from src.utils.utils import load_from_pickle
 import config as CONFIG
 
-
-from src.features import load_team_opponent
-from src.features.preprocess import derived_odds,get_bookmaker, get_odd_pred, split_date,add_last_3_scores_column
 import numpy as np
 import pandas as pd
-
-df = load_team_opponent(filename_main = CONFIG.DATA_FOLDER_RAW+'main_leagues_database_raw.sav')
-df = split_date(df)
-df = df.sort_values(['year','month','day'],ascending=False)
+print('Start')
+df = load_from_pickle(CONFIG.DATA_FOLDER_RAW+'main_leagues_database_raw.sav')
+df['Date'] = pd.to_datetime(df['Date'])
+# convert the day, month, and year columns to datetime format
 df = df.reset_index()
 
-standad_attributes = ['Target','atHome','Date','Div']
-bookmaker_attributes = get_bookmaker(bm = 'BW',df = df)+get_bookmaker(bm='B365',df = df)+get_bookmaker(bm='IW',df = df)
-bet_on_team = get_bookmaker(bm='Team',df=df[bookmaker_attributes])
-bet_on_opponent = get_bookmaker(bm='Opponent',df=df[bookmaker_attributes])
-bet_on_draw = get_bookmaker(bm='Draw',df=df[bookmaker_attributes])
+from src.utils.utils import load_from_pickle
+df = load_from_pickle(source_path= CONFIG.DATA_FOLDER_RAW+'main_leagues_database_raw.sav')
+df = df[~df.FTR.isna()]
 
-df_derived_b365 = get_odd_pred(bet="B365",df=df)
-df_derived_iw = get_odd_pred(bet="IW",df=df)
-df_derived_bw = get_odd_pred(bet="BW",df=df)
+bet_attributes = ['IWH','IWD','IWA','BWH','BWD','BWA','B365H','B365D','B365A']
+df['Date'] = pd.to_datetime(df['Date'])
+complete_bets =  df[bet_attributes].isna().T.sum()==0
+df = df[complete_bets] 
 
-df_derived_team = derived_odds(sight = 'Team',df=df, odds=bet_on_team)
-df_derived_opponent = derived_odds(sight = 'Opponent',df=df, odds=bet_on_opponent)
-df_derived_draw = derived_odds(sight = 'Draw',df=df, odds=bet_on_draw)
+X = df[["HomeTeam","AwayTeam","Div","B365H","B365D","B365A","BWH","BWD","BWA","IWH","IWD","IWA"]]
+X.head()
 
+y = df[["B365H","B365D","B365A","FTR"]]
 
-df["diff_FTG_against_Opponent"] = df["FTG_Team"]-df["FTG_Opponent"]
-df["diff_ShotsOnTarget_against_Opponent"] = df["ShotsOnTarget_Team"]-df["ShotsOnTarget_Opponent"]
+y.columns =["H","D","A","R"]
 
-df = add_last_3_scores_column(df = df, score_column="diff_FTG_against_Opponent",anz_games=4)
-df = add_last_3_scores_column(df = df, score_column="diff_ShotsOnTarget_against_Opponent",anz_games=4)
-df = add_last_3_scores_column(df = df, score_column="B365_Team",anz_games=4)
-df = add_last_3_scores_column(df = df, score_column="B365_Opponent",anz_games=4)
+import pandas as pd
 
-rolling_mean_attributes = [c for c in  df.columns if 'last' in c]
+def make_y(y_row):
+    r = y_row["R"]
+    y_row[r] = y_row[r]-1
+    results = {'H','D','A'}
+    y_row[list(results - {r})] = 0
+    return y_row
 
-df['Target'] = df.FTG_Team>df.FTG_Opponent
-df['Target'].value_counts()
-
-df = df.dropna()
-
-model_data = pd.concat([df[rolling_mean_attributes],df[standad_attributes],df[bookmaker_attributes],df[["Team","month","year"]],df_derived_team,df_derived_opponent,df_derived_draw,df_derived_b365,df_derived_iw,df_derived_bw],axis=1)
-
-model_data.replace([np.inf, -np.inf], np.nan, inplace=True)
-model_data.to_csv(CONFIG.DATA_FOLDER_PROCESSED+'model_data_all.csv')
-print('Done')
+# apply the make_y function to every row of the DataFrame
+y= y.apply(lambda x: make_y(x), axis=1)
+df = pd.concat([X,y],axis=1)
+df.to_csv(CONFIG.DATA_FOLDER_PROCESSED+'model_data.csv')
