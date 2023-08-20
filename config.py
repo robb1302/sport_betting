@@ -11,6 +11,8 @@ PDF_FOLDER = OUT_FOLDER + '/pdf/'
 JSON_FOLDER = OUT_FOLDER +  '/json/'
 PIC_FOLDER = OUT_FOLDER +  '/pic/'
 MODEL_FOLDER = OUT_FOLDER +  '/model/'
+SCRIPT_FOLDER = ROOT_FOLDER + "/scripts/"
+LOG_FOLDER = SCRIPT_FOLDER + "/logs/"
 
 
 # Data Folder
