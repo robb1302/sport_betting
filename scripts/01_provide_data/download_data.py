@@ -24,4 +24,5 @@ for liga in tqdm.tqdm(CONFIG.MAIN_LEAGUES):
         except Exception as e:
             print("Error:"e,"\n",liga,s)
             pass
+    
 
