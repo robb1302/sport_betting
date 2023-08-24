@@ -5,15 +5,57 @@ import sys
 # Directories
 ROOT_FOLDER = "./"
 
-TEMP_FOLDER = ROOT_FOLDER +  '/tmp/'
+
+# Function to create a directory if it doesn't exist
+def create_directory_if_not_exists(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+TEMP_FOLDER = ROOT_FOLDER + '/tmp/'
+create_directory_if_not_exists(TEMP_FOLDER)
+
 PNG_FOLDER = TEMP_FOLDER + '/png/'
-OUT_FOLDER = ROOT_FOLDER+  '/out/'
+create_directory_if_not_exists(PNG_FOLDER)
+
+OUT_FOLDER = ROOT_FOLDER + '/out/'
+create_directory_if_not_exists(OUT_FOLDER)
+
 PDF_FOLDER = OUT_FOLDER + '/pdf/'
-JSON_FOLDER = OUT_FOLDER +  '/json/'
-PIC_FOLDER = OUT_FOLDER +  '/pic/'
-MODEL_FOLDER = OUT_FOLDER +  '/model/'
+create_directory_if_not_exists(PDF_FOLDER)
+
+JSON_FOLDER = OUT_FOLDER + '/json/'
+create_directory_if_not_exists(JSON_FOLDER)
+
+PIC_FOLDER = OUT_FOLDER + '/pic/'
+create_directory_if_not_exists(PIC_FOLDER)
+
+MODEL_FOLDER = OUT_FOLDER + '/model/'
+create_directory_if_not_exists(MODEL_FOLDER)
+
 SCRIPT_FOLDER = ROOT_FOLDER + "/scripts/"
+create_directory_if_not_exists(SCRIPT_FOLDER)
+
 LOG_FOLDER = SCRIPT_FOLDER + "/logs/"
+create_directory_if_not_exists(LOG_FOLDER)
+
+# Data Folder
+DATA_FOLDER = ROOT_FOLDER + '/data/'
+create_directory_if_not_exists(DATA_FOLDER)
+
+DATA_FOLDER_RAW = DATA_FOLDER + '/raw/'
+create_directory_if_not_exists(DATA_FOLDER_RAW)
+
+DATA_FOLDER_FIXTURES = DATA_FOLDER + '/fixtures/'
+create_directory_if_not_exists(DATA_FOLDER_FIXTURES)
+
+DATA_FOLDER_PROCESSED = DATA_FOLDER + '/processed/'
+create_directory_if_not_exists(DATA_FOLDER_PROCESSED)
+
+DATA_FOLDER_MAPPING = DATA_FOLDER + '/mapping/'
+create_directory_if_not_exists(DATA_FOLDER_MAPPING)
+
+DATA_FOLDER_MODELS = DATA_FOLDER + '/models/'
+create_directory_if_not_exists(DATA_FOLDER_MODELS)
 
 
 # Data Folder
