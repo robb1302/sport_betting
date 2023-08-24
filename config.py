@@ -4,6 +4,10 @@ import sys
 
 # Directories
 ROOT_FOLDER = os.getcwd()
+if ROOT_FOLDER == "{parent}":
+    ROOT_FOLDER = "./"
+
+
 TEMP_FOLDER = ROOT_FOLDER +  '/tmp/'
 PNG_FOLDER = TEMP_FOLDER + '/png/'
 OUT_FOLDER = ROOT_FOLDER+  '/out/'
