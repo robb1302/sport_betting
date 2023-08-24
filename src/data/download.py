@@ -36,7 +36,7 @@ def downloadLeague(liga="D1", season="1920"):
     elif CONFIG.EXTRA_LEAGUES:
         url = f'https://www.football-data.co.uk/new/{liga}.csv'
 
-    data = pd.read_csv(url, sep=",", encoding='cp1252', error_bad_lines=False)  # use sep="," for coma separation. 
+    data = pd.read_csv(url, sep=",", encoding='cp1252')  # use sep="," for coma separation. 
     main_path =CONFIG.DATA_FOLDER_RAW
     data.to_csv(main_path + liga + '/season/' + liga + '_' + season + '.csv')
     return(data)
