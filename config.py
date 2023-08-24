@@ -3,7 +3,7 @@ import shutil
 import sys
 
 # Directories
-ROOT_FOLDER = "./"
+ROOT_FOLDER = os.getcwd()
 
 
 # Function to create a directory if it doesn't exist
