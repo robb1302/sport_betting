@@ -3,10 +3,7 @@ import shutil
 import sys
 
 # Directories
-ROOT_FOLDER = os.getcwd()
-if ROOT_FOLDER == "{parent}":
-    ROOT_FOLDER = "./"
-
+ROOT_FOLDER = "./"
 
 TEMP_FOLDER = ROOT_FOLDER +  '/tmp/'
 PNG_FOLDER = TEMP_FOLDER + '/png/'

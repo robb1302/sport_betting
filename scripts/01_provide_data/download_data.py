@@ -22,7 +22,7 @@ for liga in tqdm.tqdm(CONFIG.MAIN_LEAGUES):
         try:
             downloadLeague(liga=liga, season = s)
         except Exception as e:
-            print("Error:"e,"\n",liga,s)
+            print("Error:",e,"\n",liga,s)
             pass
     
 
