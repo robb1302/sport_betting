@@ -1,7 +1,7 @@
 import os
 import sys
 import tqdm
-
+import pandas as pd
 
 # Get the current working directory
 current_directory = os.getcwd()
@@ -16,13 +16,10 @@ from src.utils.utils import createDirs
 import config as CONFIG
 from src.data.download import downloadLeague
 
-def update_league(liga="D1", season="1920"):
-    if liga in CONFIG.MAIN_LEAGUES:
-        url = 'https://www.football-data.co.uk/mmz4281/fixtures.csv'
-
-    data = pd.read_csv(url, sep=",", encoding='cp1252', error_bad_lines=False)  # use sep="," for coma separation. 
-    main_path =CONFIG.DATA_FOLDER_RAW
-    data.to_csv('update.csv')
+def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
+    data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
+    data.to_csv(CONFIG.DATA_FOLDER_RAW+'fixtures/update.csv')
     return(data)
-
-pd.read_csv('https://www.football-data.co.uk/fixtures.csv', sep=",", encoding='cp1252', error_bad_lines=False)  
+download_fixtures(url = "https://www.football-data.co.uk/fixtures.csv")
+print('Done')
+pd.read_csv('https://www.football-data.co.uk/fixtures.csv', sep=",", encoding='cp1252')  
