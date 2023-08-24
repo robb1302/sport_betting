@@ -3,7 +3,7 @@ import shutil
 import sys
 
 # Directories
-ROOT_FOLDER = "c:/Users/Robert/Documents/Projekte/dev/sport_betting/"
+ROOT_FOLDER = os.getcwd()
 TEMP_FOLDER = ROOT_FOLDER +  '/tmp/'
 PNG_FOLDER = TEMP_FOLDER + '/png/'
 OUT_FOLDER = ROOT_FOLDER+  '/out/'
