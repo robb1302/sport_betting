@@ -14,6 +14,7 @@ df = pd.read_csv("data/fixtures/update.csv",index_col=0)[['Div','HomeTeam','Away
 
 # Display the DataFrame as a table
 st.write("Upcoming Games")
+
 # Sidebar filter options
 st.sidebar.header('Filter Options')
 
@@ -22,4 +23,6 @@ selected_div = st.sidebar.selectbox('Select Division', df['Div'].unique())
 
 # Filter the DataFrame based on the selected Div value
 filtered_df = df[df['Div'] == selected_div]
-st.dataframe(df,hide_index = True)
+
+# Display the filtered DataFrame
+st.dataframe(filtered_df, hide_index=True)
