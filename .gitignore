@@ -132,3 +132,4 @@ dmypy.json
 .vscode
 /data/raw/*
 /data/processed/*
+!/data/fixtures

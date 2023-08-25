@@ -51,8 +51,10 @@ def readLeague(liga="D1", season="1920"):
     return dataframe
 
 def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
+    
     data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
-    data.to_csv(CONFIG.DATA_FOLDER_RAW+'fixtures/update.csv')
+    data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'update.csv')
+    print("succesfull updated fixtures")
 
 @DeprecationWarning
 def download_next_matchday():
