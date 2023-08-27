@@ -7,7 +7,7 @@ st.header('Cutting Edge Sports Prediction ⚽!')
 if st.button('Getting Startetd'):
     st.balloons()
 # Path to your local CSV file
-download_fixtures()
+# download_fixtures()
 
 # Read the CSV file into a DataFrame
 # df = pd.read_csv("data/fixtures/update.csv",index_col=0)[['Div','HomeTeam','AwayTeam']]
