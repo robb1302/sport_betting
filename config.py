@@ -48,6 +48,9 @@ create_directory_if_not_exists(DATA_FOLDER_RAW)
 DATA_FOLDER_FIXTURES = DATA_FOLDER + '/fixtures/'
 create_directory_if_not_exists(DATA_FOLDER_FIXTURES)
 
+DATA_FOLDER_RESULTS = DATA_FOLDER + '/results/'
+create_directory_if_not_exists(DATA_FOLDER_RESULTS)
+
 DATA_FOLDER_PROCESSED = DATA_FOLDER + '/processed/'
 create_directory_if_not_exists(DATA_FOLDER_PROCESSED)
 
