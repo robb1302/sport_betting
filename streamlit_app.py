@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 from src.data.download import download_fixtures 
 import os
+import streamlit_analytics
 
+streamlit_analytics.start_tracking()
 st.header('Cutting Edge Sports Prediction ⚽!')
 if st.button('Getting Startetd'):
     st.balloons()
@@ -27,3 +29,4 @@ filtered_df = df[df['Div'] == selected_div]
 
 # Display the filtered DataFrame
 st.dataframe(filtered_df, hide_index=True)
+streamlit_analytics.stop_tracking()

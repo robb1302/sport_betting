@@ -16,3 +16,4 @@ seaborn
 tqdm
 ipykernel
 streamlit
+streamlit-analytics
