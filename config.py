@@ -11,7 +11,7 @@ def create_directory_if_not_exists(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-TEMP_FOLDER = ROOT_FOLDER + '/tmp/'
+TEMP_FOLDER = ROOT_FOLDER + 'tmp/'
 create_directory_if_not_exists(TEMP_FOLDER)
 
 PNG_FOLDER = TEMP_FOLDER + '/png/'
@@ -35,12 +35,12 @@ create_directory_if_not_exists(MODEL_FOLDER)
 SCRIPT_FOLDER = ROOT_FOLDER + "/scripts/"
 create_directory_if_not_exists(SCRIPT_FOLDER)
 
-LOG_FOLDER = SCRIPT_FOLDER + "/logs/"
-create_directory_if_not_exists(LOG_FOLDER)
-
 # Data Folder
 DATA_FOLDER = ROOT_FOLDER + '/data/'
 create_directory_if_not_exists(DATA_FOLDER)
+
+LOG_FOLDER = DATA_FOLDER + "/logs/"
+create_directory_if_not_exists(LOG_FOLDER)
 
 DATA_FOLDER_RAW = DATA_FOLDER + '/raw/'
 create_directory_if_not_exists(DATA_FOLDER_RAW)

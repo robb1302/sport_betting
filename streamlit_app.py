@@ -10,7 +10,8 @@ if st.button('Getting Startetd'):
 download_fixtures()
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("data/fixtures/update.csv",index_col=0)[['Div','HomeTeam','AwayTeam']]
+# df = pd.read_csv("data/fixtures/update.csv",index_col=0)[['Div','HomeTeam','AwayTeam']]
+df = pd.read_csv("data/results/results.csv",index_col=0)
 
 # Display the DataFrame as a table
 st.write("Upcoming Games")

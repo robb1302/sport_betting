@@ -5,9 +5,14 @@ import numpy as np
 
 def load_team_opponent(filename_main:str):
 
-
-    df = pickle.load(open(filename_main, 'rb'))
-    mapping = pd.read_csv(CONFIG.DATA_FOLDER_MAPPING+'mapping_team_opponent.csv',",")
+    if (".sav" in filename_main) | (".pkl" in filename_main):
+        df = pd.read_pickle(filename_main)
+    elif (".csv" in filename_main):
+        df = pd.read_csv(filename_main)
+    else:
+        print('cant read data')
+    
+    mapping = pd.read_csv(CONFIG.DATA_FOLDER_MAPPING+'mapping_team_opponent.csv')
 
 
     map_home = dict()
@@ -28,6 +33,23 @@ def load_team_opponent(filename_main:str):
     df_team_opponent = pd.concat([df_home,df_away],axis=0)
     return df_team_opponent
 
+import pandas as pd
+
+def split_date(df):
+    """
+    Splits a DataFrame's 'Date' column into separate 'day', 'month', and 'year' columns.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the 'Date' column to be split.
+
+    Returns:
+    pandas.DataFrame: The input DataFrame with additional 'day', 'month', and 'year' columns.
+
+    Note:
+    - The 'Date' column is expected to be in the format 'day/month/year'.
+    - If the 'Date' column contains years with only two digits (e.g., 'yy' instead of 'yyyy'),
+      it assumes years less than 2000 should be interpreted as '20yy'.
+    """
 def split_date(df):
     if 'Date' in df.columns:
         new_date = (df["Date"].str.split("/",expand=True))
@@ -40,6 +62,7 @@ def split_date(df):
     else:
         print('Keine Spalte "Date" in Spalten vorhanden')
     return df
+
 
 def get_bookmaker(bm:str,df):
     return [i for i in df.columns if bm in i]
