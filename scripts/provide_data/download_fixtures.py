@@ -18,7 +18,7 @@ from src.data.download import downloadLeague
 
 def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
     data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
-    data.to_csv(CONFIG.DATA_FOLDER_RAW+'fixtures/update.csv')
+    data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'/update.csv')
     return(data)
 download_fixtures(url = "https://www.football-data.co.uk/fixtures.csv")
 print('Done')
