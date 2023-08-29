@@ -26,7 +26,7 @@ jobs:
       working-directory: ./scripts/batch_runs
       run: |
         # Run your batch script from the specified directory
-        ./update_fixtures.bat
+        ./workflow_update_fixtures.bat
 
     - name: Configure Git
       run: |
