@@ -1,0 +1,19 @@
+name: Update Fixtures
+
+on:
+  workflow_dispatch: # This allows manual triggering
+  schedule:
+    - cron: '0 16 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
+
+jobs:
+  update-fixtures:
+    runs-on: windows-latest # You may adjust the runner based on your requirements
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run update_fixtures.bat
+      run: |
+        # Assuming your batch script is in the root directory
+        .\scripts\batch_runs\update_fixtures.bat
