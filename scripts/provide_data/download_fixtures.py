@@ -20,6 +20,6 @@ def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.cs
     data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
     data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'/update.csv')
     return(data)
+print('Download next matches')
 download_fixtures(url = "https://www.football-data.co.uk/fixtures.csv")
 print('Done')
-pd.read_csv('https://www.football-data.co.uk/fixtures.csv', sep=",", encoding='cp1252')  
