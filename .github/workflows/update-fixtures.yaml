@@ -1,19 +1,41 @@
 name: Update Fixtures
 
 on:
-  workflow_dispatch: # This allows manual triggering
+  workflow_dispatch: # Allows manual triggering
   schedule:
     - cron: '0 16 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
 
 jobs:
   update-fixtures:
-    runs-on: windows-latest # You may adjust the runner based on your requirements
+    runs-on: windows-latest # Adjust the runner based on your requirements
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Run update_fixtures.bat
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.4 
+
+    - name: Install Python Dependencies
       run: |
-        # Assuming your batch script is in the root directory
-        .\scripts\batch_runs\update_fixtures.bat
+        pip install -r requirements.txt # Install packages from requirements.txt
+
+    - name: Run update_fixtures.bat
+      working-directory: ./scripts/batch_runs
+      run: |
+        # Run your batch script from the specified directory
+        ./update_fixtures.bat
+
+    - name: Configure Git
+      run: |
+        git config --global user.email "robert.gerth@mail.de"
+        git config --global user.name "Robert Gerth"
+
+    - name: Commit and Push Changes (if needed)
+      run: |
+        # Commit and push changes if your script makes modifications
+        git add .
+        git commit -m "Update fixtures"
+        git push
