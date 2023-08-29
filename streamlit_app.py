@@ -18,7 +18,7 @@ df = pd.read_csv("data/results/results.csv",index_col=0)
 st.write("Upcoming Games")
 
 # Sidebar filter options
-st.sidebar.header('Filter Options')
+st.sidebar.header('Filter League')
 
 # Create a selectbox widget for selecting a specific Div value
 selected_div = st.sidebar.selectbox('Select Division', df['Div'].unique())
