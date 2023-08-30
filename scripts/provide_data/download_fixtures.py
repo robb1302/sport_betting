@@ -13,12 +13,6 @@ def find_and_append_module_path():
         parent_dir = os.path.join(current_directory[:index], substring_to_find)
         sys.path.append(parent_dir)
 
-
-def main():
-    print('Download next matches')
-    
-    print('Done')
-
 if __name__ == "__main__":
 
     # Configure logging
