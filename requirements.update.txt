@@ -1,7 +1,7 @@
-numpy
-matplotlib
+# numpy
+# matplotlib
 pandas
-scikit-learn
-tqdm
-streamlit
-streamlit-analytics
+# scikit-learn
+# tqdm
+# streamlit
+# streamlit-analytics

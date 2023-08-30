@@ -23,10 +23,10 @@ jobs:
         pip install -r requirements.update.txt # Install packages from requirements.txt
 
     - name: Run update_fixtures.bat
-      working-directory: ./scripts/batch_runs
+      working-directory: ./sport_betting/
       run: |
         # Run your batch script from the specified directory
-        ./workflow_update_fixtures.bat
+        ./scripts/batch_runs/workflow_update_fixtures.bat
 
     - name: Configure Git
       run: |
