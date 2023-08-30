@@ -1,8 +1,14 @@
 @echo off
 setlocal
 
-rem Execute your Python scripts within the virtual environment
+rem Activate the virtual environment if needed (adjust the path accordingly)
+call D:\a\sport_betting\.venv\Scripts\activate.bat
+
+rem Execute your Python script within the virtual environment
 py .\scripts\workflows\download_fixtures.py 
+
+rem Deactivate the virtual environment (if activated)
+call D:\a\sport_betting\.venv\Scripts\deactivate.bat
 
 rem End of script
 exit /b 0
