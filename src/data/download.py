@@ -52,9 +52,17 @@ def readLeague(liga="D1", season="1920"):
 
 def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
     
-    data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
-    data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'update.csv')
-    print("succesfull updated fixtures")
+    print("start downloading fixtures...")
+    try:
+        data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
+    except:
+        raise ValueError(f"{url} can't be downloaded")
+    
+    if not os.path.exists(CONFIG.DATA_FOLDER_FIXTURES):
+        FileNotFoundError(f"The file or directory '{CONFIG.DATA_FOLDER_FIXTURES}' does not exist.")
+    else:
+        data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'update.csv')
+        print("succesfull updated fixtures")
 
 @DeprecationWarning
 def download_next_matchday():

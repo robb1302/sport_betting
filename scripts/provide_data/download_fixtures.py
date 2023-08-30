@@ -1,25 +1,35 @@
 import os
 import sys
-import tqdm
-import pandas as pd
+import logging
 
-# Get the current working directory
-current_directory = os.getcwd()
-# Define the substring to find
-substring_to_find = 'sport_betting'
-# Use str.find() to find the position of the substring
-index = current_directory.find(substring_to_find)
-parent_dir = f"{ current_directory[0:index]}/{substring_to_find}"
-sys.path.append(parent_dir)
 
-from src.utils.utils import createDirs
-import config as CONFIG
-from src.data.download import downloadLeague
 
-def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
-    data = pd.read_csv(url, sep=",", encoding='cp1252')   # use sep="," for coma separation. 
-    data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'/update.csv')
-    return(data)
-print('Download next matches')
-download_fixtures(url = "https://www.football-data.co.uk/fixtures.csv")
-print('Done')
+def find_and_append_module_path():
+    current_directory = os.getcwd()
+    substring_to_find = 'sport_betting'
+    index = current_directory.find(substring_to_find)
+    
+    if index != -1:
+        parent_dir = os.path.join(current_directory[:index], substring_to_find)
+        sys.path.append(parent_dir)
+
+
+def main():
+    print('Download next matches')
+    
+    print('Done')
+
+if __name__ == "__main__":
+
+    # Configure logging
+
+    # Create a StreamHandler to also log to the console
+    
+    print('Setting env...')
+    print(os.getcwd())
+    find_and_append_module_path()
+    print(os.getcwd())
+    print('Setting env done')
+
+    from src.data.download import download_fixtures
+    download_fixtures(url="https://www.football-data.co.uk/fixtures.csv")
