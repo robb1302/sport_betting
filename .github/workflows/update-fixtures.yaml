@@ -24,5 +24,4 @@ jobs:
 
     - name: Run Batch Script
       working-directory: .\scripts\workflows
-      run: |
-        .\workflow_update_fixtures.bat
+      run: cmd /c workflow_update_fixtures.bat
