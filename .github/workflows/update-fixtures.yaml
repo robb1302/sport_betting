@@ -23,5 +23,5 @@ jobs:
         pip install -r requirements.update.txt # Install packages from requirements.update.txt
 
     - name: Run Batch Script
-      working-directory: .\scripts\workflows
-      run: cmd /c workflow_update_fixtures.bat
+      working-directory: .\scripts\batch_runs
+      run: workflow_update_fixtures.bat
