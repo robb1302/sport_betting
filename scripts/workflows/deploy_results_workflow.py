@@ -48,17 +48,19 @@ def predict_matches(df):
     return result_df
 
 if __name__ == "__main__":
-    import config as CONFIG
-    from scripts.process_data.preprocess_team_opponent_deployment import (
-        load_team_opponent, preprocess_data)
-    from src.data.provide_data import get_model_data
-    from src.deploy.results import transform_and_merge
+
     # Configure logging
     print("File:",os.getcwd())
     # print("Dirs",os.listdir())
     # Create a StreamHandler to also log to the console
     print("find_and_append_module_path...")
     find_and_append_module_path()
+    import config as CONFIG
+    from scripts.process_data.preprocess_team_opponent_deployment import (
+        load_team_opponent, preprocess_data)
+    from src.data.provide_data import get_model_data
+    from src.deploy.results import transform_and_merge
+
     print("File:",os.getcwd())
     
     print("Load Data...")
