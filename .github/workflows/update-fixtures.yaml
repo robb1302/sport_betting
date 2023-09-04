@@ -26,3 +26,14 @@ jobs:
       working-directory: .\
       run:  .\scripts\batch_runs\workflow_update_fixtures.bat
 
+    - name: Git Actions
+      run: |
+        git config user.name "Robert Gerth"
+        git config user.email "robert.gerth@mail.de"
+        
+
+        cd .\data\results
+
+        git add results.csv
+        git commit -m "Add results.csv"
+        git push origin dev
