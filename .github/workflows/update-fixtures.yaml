@@ -34,6 +34,6 @@ jobs:
 
         cd .\data\results
 
-        git add results_test.csv
-        git commit -m "Add results_test.csv"
+        git add results.csv
+        git commit -m "Add results.csv"
         git push origin main
