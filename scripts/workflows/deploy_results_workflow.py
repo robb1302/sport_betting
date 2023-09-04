@@ -27,17 +27,12 @@ def predict_matches(df):
     df = preprocess_data(df)
 
     import pickle
-    clf = pickle.load(open(CONFIG.DATA_FOLDER_MODELS+"xgb.pkl","rb"))
-
-    X_train, _ = get_model_data(filename = "train",model_data="model_data",use_categories=False)
-
-
-    # TODO: Import scaler
 
     # Initialize scaler object
     scaler = pickle.load(open(CONFIG.DATA_FOLDER_MODELS+"scaler_team_opponent.pkl","rb"))
     df_scaled = scaler.transform(df[scaler.feature_names_in_])
 
+    clf = pickle.load(open(CONFIG.DATA_FOLDER_MODELS+"xgb.pkl","rb"))
     preds = pd.DataFrame(clf.predict_proba(df_scaled)[:,1],columns=["preds"])
 
     result_df = transform_and_merge(df = df, preds=preds)
