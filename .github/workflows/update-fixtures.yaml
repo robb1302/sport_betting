@@ -1,9 +1,9 @@
-name: Update Fixtures
+name: Update Fixtures Productive
 
 on:
   workflow_dispatch: # Allows manual triggering
   schedule:
-    - cron: '0 16 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
+    - cron: '0 16 * * *' # Runs every Tuesday and Friday at 4 PM UTC
 
 jobs:
   update-fixtures:
