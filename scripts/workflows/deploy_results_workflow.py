@@ -33,14 +33,10 @@ def predict_matches(df):
 
 
     # TODO: Import scaler
-    from sklearn.preprocessing import StandardScaler
 
     # Initialize scaler object
-    scaler = StandardScaler()
-
-    # Fit scaler on training data
-    scaler.fit(X_train)
-    df_scaled = scaler.transform(df[X_train.columns])
+    scaler = pickle.load(open(CONFIG.DATA_FOLDER_MODELS+"scaler_team_opponent.pkl","rb"))
+    df_scaled = scaler.transform(df[scaler.feature_names_in_])
 
     preds = pd.DataFrame(clf.predict_proba(df_scaled)[:,1],columns=["preds"])
 
