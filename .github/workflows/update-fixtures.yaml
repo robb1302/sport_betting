@@ -35,5 +35,5 @@ jobs:
         cd .\data\results
 
         git add results.csv
-        git commit -m "Add results.csv"
-        git push origin dev
+        git commit -m "Add results_test.csv"
+        git push origin main
