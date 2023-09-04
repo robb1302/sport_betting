@@ -36,4 +36,4 @@ jobs:
 
         git add results.csv
         git commit -m "Add results.csv"
-        git push origin main
+        git push origin dev
