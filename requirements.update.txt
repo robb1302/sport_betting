@@ -1,7 +1,8 @@
 # numpy
 # matplotlib
 pandas
-# scikit-learn
+xgboost
+scikit-learn
 # tqdm
 # streamlit
 # streamlit-analytics
