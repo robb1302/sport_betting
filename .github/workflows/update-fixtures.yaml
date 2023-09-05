@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # Allows manual triggering
   schedule:
     - cron:  '0 18 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
- 
+      timezone: 'Europe/London'  # Specify the British timezone
 
 jobs:
   update-fixtures:
