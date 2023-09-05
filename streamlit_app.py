@@ -13,7 +13,7 @@ st.write(
     """
     <div style="text-align: center;">
         <h2> Welcome to </h2>
-        <h1>🍀The Gamblin' Goblin🍀</h1>
+        <h1>The Gamblin' Goblin</h1>
     </div>
     """,
     unsafe_allow_html=True
