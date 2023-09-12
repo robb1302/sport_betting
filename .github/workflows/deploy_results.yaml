@@ -1,10 +1,7 @@
-name: Update Fixtures Productive
+name: Update Fixtures Dev
 
 on:
   workflow_dispatch: # Allows manual triggering
-  schedule:
-    - cron:  '0 17 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
-      timezone: 'Europe/London'  # Specify the British timezone
 
 jobs:
   update-fixtures:
@@ -37,4 +34,4 @@ jobs:
 
         git add results.csv
         git commit -m "Add results.csv"
-        git push origin main
+        git push origin dev

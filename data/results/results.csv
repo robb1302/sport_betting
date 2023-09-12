@@ -1,28 +1,180 @@
-,Div,Home,Away,preds_home,preds_away,preds_draw
-0,I2,Bari,Cittadella,0.45856106,0.34793007,0.19350886
-1,I2,Catanzaro,Spezia,0.37305975,0.44253138,0.1844089
-2,I2,Sampdoria,Venezia,0.46264628,0.3712896,0.16606414
-3,I2,Ternana,Cremonese,0.35091317,0.47531694,0.17376989
-4,I2,Ascoli,FeralpiSalo,0.4997629,0.31398776,0.18624938
-5,I2,Cosenza,Modena,0.41289032,0.38868135,0.19842833
-6,I2,Pisa,Parma,0.41922632,0.37148768,0.20928597
-7,I2,Reggiana,Palermo,0.36934108,0.42613816,0.20452076
-8,EC,Barnet,Ebbsfleet,0.47598448,0.3663986,0.15761691
-9,EC,Bromley,Southend,0.35012913,0.46201476,0.18785608
-10,EC,Chesterfield,Hartlepool,0.4745145,0.33492547,0.19055998
-11,EC,Eastleigh,Aldershot,0.4465666,0.3945598,0.15887356
-12,EC,Fylde,Altrincham,0.43468732,0.37077403,0.19453865
-13,EC,Halifax,Gateshead,0.39048344,0.4293279,0.18018866
-14,EC,Kidderminster,Maidenhead,0.47165447,0.35229507,0.17605042
-15,EC,Oldham,Solihull,0.5036353,0.3648858,0.1314789
-16,EC,Oxford City,Boreham Wood,0.35481134,0.48861074,0.15657794
-17,EC,Wealdstone,Dag and Red,0.45856267,0.34455657,0.19688076
-18,EC,Woking,Dorking,0.5544609,0.32858992,0.1169492
-19,EC,York,Rochdale,0.38462612,0.41500825,0.20036566
-20,F2,Annecy,St Etienne,0.3539071,0.49723446,0.14885843
-21,I1,Salernitana,Udinese,0.4011457,0.4216414,0.1772129
-22,I1,Cagliari,Inter,0.2242148,0.6418243,0.1339609
-23,P1,Rio Ave,Porto,0.22481552,0.61877435,0.1564101
-24,SP1,Getafe,Alaves,0.42133027,0.32873285,0.24993688
-25,SP1,Vallecano,Ath Madrid,0.3255167,0.49866277,0.17582053
-26,T1,Ad. Demirspor,Besiktas,0.40373683,0.44911146,0.14715171
+,Div,Home Team,Away Team,Home Prob,Away Prob,Draw Prob,Fair Home Odd,Fair Draw Odd,Fair Away Odd
+49,D1,Leverkusen,Darmstadt,0.69,0.22,0.09,1.46,10.98,4.47
+1,D1,Ein Frankfurt,FC Koln,0.45,0.35,0.19,2.2,5.25,2.82
+2,D1,Union Berlin,RB Leipzig,0.35,0.48,0.17,2.84,5.91,2.09
+52,D1,M'gladbach,Bayern Munich,0.24,0.68,0.08,4.2,11.98,1.47
+51,D1,Werder Bremen,Mainz,0.42,0.42,0.16,2.4,6.12,2.38
+50,D1,Stuttgart,Freiburg,0.47,0.4,0.13,2.12,7.61,2.53
+47,D1,Augsburg,Bochum,0.45,0.37,0.19,2.24,5.32,2.74
+48,D1,Hoffenheim,Wolfsburg,0.43,0.42,0.16,2.35,6.43,2.39
+165,D1,Dortmund,Heidenheim,0.7,0.21,0.09,1.43,11.14,4.73
+53,D2,Holstein Kiel,Paderborn,0.46,0.38,0.16,2.17,6.24,2.63
+166,D2,Braunschweig,St Pauli,0.34,0.51,0.15,2.91,6.71,1.97
+54,D2,Magdeburg,Hertha,0.46,0.41,0.13,2.19,7.48,2.45
+56,D2,Kaiserslautern,Nurnberg,0.47,0.38,0.14,2.11,6.91,2.62
+5,D2,Osnabruck,Elversberg,0.43,0.4,0.16,2.3,6.17,2.48
+4,D2,Hamburg,Hansa Rostock,0.58,0.29,0.13,1.71,7.91,3.46
+3,D2,Greuther Furth,Hannover,0.53,0.33,0.14,1.88,7.36,3.01
+167,D2,Fortuna Dusseldorf,Karlsruhe,0.45,0.38,0.17,2.24,5.77,2.63
+55,D2,Wehen,Schalke 04,0.37,0.47,0.16,2.7,6.32,2.12
+61,E0,Man City,Fulham,0.7,0.21,0.09,1.42,11.37,4.81
+62,E0,Brighton,Newcastle,0.46,0.41,0.13,2.16,7.94,2.44
+57,E0,Sheffield United,Everton,0.37,0.45,0.18,2.69,5.65,2.22
+58,E0,Brentford,Bournemouth,0.59,0.3,0.11,1.69,9.46,3.32
+59,E0,Burnley,Tottenham,0.34,0.5,0.17,2.98,5.9,2.02
+60,E0,Chelsea,Nott'm Forest,0.67,0.24,0.1,1.5,10.21,4.25
+168,E0,Luton,West Ham,0.39,0.49,0.12,2.58,8.45,2.02
+8,E0,Arsenal,Man United,0.5,0.32,0.19,2.01,5.35,3.16
+7,E0,Liverpool,Aston Villa,0.54,0.3,0.17,1.86,6.05,3.38
+6,E0,Crystal Palace,Wolves,0.48,0.35,0.17,2.11,5.86,2.82
+72,E1,Rotherham,Norwich,0.33,0.5,0.16,2.99,6.17,1.99
+73,E1,Stoke,Preston,0.48,0.35,0.17,2.09,5.74,2.88
+74,E1,West Brom,Huddersfield,0.57,0.31,0.12,1.75,8.66,3.21
+69,E1,Leicester,Hull,0.57,0.32,0.11,1.76,9.1,3.09
+68,E1,Leeds,Sheffield Weds,0.6,0.25,0.15,1.68,6.58,3.97
+65,E1,Swansea,Bristol City,0.47,0.36,0.17,2.11,5.92,2.8
+66,E1,Coventry,Watford,0.46,0.37,0.17,2.19,5.91,2.67
+71,E1,Plymouth,Blackburn,0.42,0.42,0.16,2.39,6.16,2.39
+64,E1,Sunderland,Southampton,0.45,0.39,0.16,2.23,6.21,2.56
+63,E1,Birmingham,Millwall,0.43,0.39,0.18,2.31,5.59,2.57
+67,E1,Ipswich,Cardiff,0.54,0.3,0.16,1.85,6.12,3.39
+70,E1,Middlesbrough,QPR,0.56,0.31,0.13,1.77,7.77,3.25
+0,E2,Cambridge,Reading,0.44,0.37,0.19,2.29,5.27,2.68
+76,E2,Bolton,Derby,0.47,0.35,0.18,2.14,5.52,2.85
+75,E2,Blackpool,Wigan,0.49,0.33,0.18,2.05,5.6,3.0
+85,E2,Portsmouth,Peterboro,0.45,0.37,0.18,2.21,5.49,2.73
+84,E2,Oxford,Port Vale,0.56,0.3,0.14,1.79,7.11,3.32
+83,E2,Northampton,Wycombe,0.45,0.37,0.19,2.24,5.36,2.73
+78,E2,Burton,Exeter,0.39,0.45,0.16,2.57,6.07,2.24
+81,E2,Cheltenham,Barnsley,0.32,0.5,0.18,3.09,5.56,2.01
+80,E2,Charlton,Fleetwood Town,0.47,0.35,0.18,2.11,5.68,2.86
+79,E2,Carlisle,Shrewsbury,0.42,0.37,0.2,2.37,4.89,2.68
+77,E2,Bristol Rvs,Lincoln,0.44,0.37,0.18,2.25,5.48,2.68
+82,E2,Leyton Orient,Stevenage,0.38,0.43,0.2,2.67,5.08,2.34
+86,E3,Tranmere,Wrexham,0.37,0.45,0.18,2.7,5.63,2.22
+88,E3,Doncaster,Swindon,0.38,0.45,0.17,2.62,5.98,2.22
+90,E3,Harrogate,Barrow,0.45,0.37,0.18,2.22,5.58,2.71
+91,E3,Mansfield,Bradford,0.5,0.33,0.17,2.0,5.83,3.04
+92,E3,Morecambe,Salford,0.39,0.46,0.16,2.59,6.29,2.2
+93,E3,Newport County,AFC Wimbledon,0.45,0.38,0.17,2.22,5.91,2.62
+94,E3,Notts County,Accrington,0.55,0.3,0.15,1.81,6.66,3.38
+95,E3,Stockport,Crawley Town,0.58,0.28,0.14,1.74,6.95,3.57
+96,E3,Sutton,Forest Green,0.48,0.35,0.17,2.1,5.85,2.83
+97,E3,Walsall,Colchester,0.47,0.34,0.19,2.15,5.22,2.92
+87,E3,Crewe,Milton Keynes Dons,0.39,0.44,0.17,2.59,5.79,2.27
+89,E3,Grimsby,Gillingham,0.43,0.37,0.2,2.33,4.99,2.7
+98,EC,Aldershot,Chesterfield,0.34,0.49,0.17,2.96,5.93,2.03
+99,EC,Altrincham,Bromley,0.47,0.33,0.2,2.13,5.01,3.02
+100,EC,Boreham Wood,Barnet,0.45,0.34,0.21,2.24,4.72,2.92
+101,EC,Dag and Red,Fylde,0.47,0.42,0.11,2.13,9.37,2.36
+102,EC,Dorking,Eastleigh,0.38,0.45,0.16,2.61,6.15,2.2
+103,EC,Ebbsfleet,York,0.48,0.36,0.17,2.09,6.04,2.81
+104,EC,Hartlepool,Wealdstone,0.53,0.3,0.17,1.89,5.81,3.35
+105,EC,Maidenhead,Woking,0.37,0.49,0.14,2.73,7.13,2.03
+106,EC,Rochdale,Halifax,0.49,0.35,0.16,2.03,6.24,2.89
+107,EC,Solihull,Oxford City,0.52,0.31,0.17,1.94,5.76,3.22
+108,EC,Southend,Kidderminster,0.48,0.36,0.16,2.08,6.2,2.8
+109,EC,Gateshead,Oldham,0.48,0.34,0.18,2.08,5.47,2.97
+9,F1,Toulouse,Clermont,0.48,0.33,0.19,2.09,5.29,3.01
+13,F1,Nice,Strasbourg,0.49,0.33,0.18,2.05,5.44,3.05
+110,F1,Brest,Rennes,0.37,0.5,0.14,2.72,7.3,2.02
+10,F1,Le Havre,Lorient,0.39,0.4,0.21,2.56,4.73,2.52
+169,F1,Nantes,Marseille,0.35,0.51,0.15,2.88,6.84,1.97
+12,F1,Metz,Reims,0.33,0.5,0.17,3.05,5.89,1.99
+11,F1,Lille,Montpellier,0.52,0.31,0.16,1.91,6.17,3.19
+111,F1,Monaco,Lens,0.44,0.4,0.16,2.25,6.41,2.5
+14,F1,Lyon,Paris SG,0.28,0.62,0.09,3.51,10.69,1.61
+112,F2,Bordeaux,Auxerre,0.46,0.36,0.19,2.19,5.4,2.78
+113,F2,Ajaccio,Dunkerque,0.5,0.31,0.2,2.02,5.06,3.26
+114,F2,Amiens,Guingamp,0.44,0.36,0.19,2.26,5.13,2.76
+115,F2,Angers,Paris FC,0.48,0.35,0.17,2.08,5.85,2.87
+117,F2,Grenoble,Bastia,0.43,0.35,0.23,2.35,4.43,2.87
+118,F2,Laval,Caen,0.34,0.49,0.17,2.95,5.83,2.05
+119,F2,Pau FC,Rodez,0.41,0.39,0.21,2.47,4.87,2.57
+120,F2,St Etienne,Valenciennes,0.55,0.3,0.15,1.82,6.6,3.34
+121,F2,Troyes,Quevilly Rouen,0.45,0.37,0.18,2.2,5.65,2.72
+116,F2,Concarneau,Annecy,0.47,0.34,0.19,2.13,5.39,2.9
+170,G1,Kifisias,Atromitos,0.43,0.38,0.19,2.35,5.14,2.63
+17,G1,Olympiakos,Lamia,0.73,0.2,0.07,1.37,14.16,4.96
+122,G1,Panserraikos,Panetolikos,0.46,0.36,0.18,2.17,5.52,2.8
+16,G1,OFI Crete,PAOK,0.31,0.54,0.16,3.27,6.3,1.87
+19,G1,Giannina,Panathinaikos,0.29,0.56,0.15,3.46,6.56,1.79
+18,G1,Volos NFC,AEK,0.2,0.71,0.09,4.94,11.17,1.41
+15,G1,Aris,Asteras Tripolis,0.54,0.28,0.18,1.84,5.62,3.59
+124,I1,Udinese,Frosinone,0.51,0.31,0.18,1.95,5.7,3.21
+20,I1,Inter,Fiorentina,0.54,0.31,0.15,1.84,6.68,3.26
+123,I1,Bologna,Cagliari,0.57,0.29,0.14,1.76,7.24,3.39
+126,I1,Napoli,Lazio,0.53,0.31,0.16,1.89,6.11,3.25
+171,I1,Sassuolo,Verona,0.48,0.36,0.16,2.07,6.21,2.82
+172,I1,Roma,Milan,0.39,0.39,0.22,2.59,4.56,2.53
+23,I1,Lecce,Salernitana,0.49,0.32,0.18,2.03,5.48,3.09
+22,I1,Empoli,Juventus,0.3,0.57,0.14,3.36,7.4,1.76
+21,I1,Torino,Genoa,0.48,0.33,0.19,2.07,5.23,3.07
+125,I1,Atalanta,Monza,0.55,0.3,0.14,1.81,7.04,3.29
+26,I2,Ternana,Bari,0.4,0.41,0.19,2.53,5.23,2.42
+25,I2,Spezia,Como,0.57,0.31,0.12,1.77,8.28,3.19
+24,I2,Cremonese,Sampdoria,0.49,0.33,0.18,2.05,5.59,2.99
+130,I2,Sudtirol,Ascoli,0.44,0.33,0.23,2.29,4.26,3.05
+129,I2,Parma,Reggiana,0.57,0.29,0.13,1.75,7.43,3.41
+128,I2,Palermo,FeralpiSalo,0.52,0.3,0.18,1.91,5.65,3.33
+127,I2,Modena,Pisa,0.39,0.35,0.26,2.54,3.85,2.88
+27,I2,Cittadella,Venezia,0.44,0.37,0.2,2.29,5.03,2.74
+133,N1,Waalwijk,PSV Eindhoven,0.23,0.68,0.09,4.28,11.71,1.47
+132,N1,Go Ahead Eagles,Heerenveen,0.44,0.4,0.16,2.29,6.32,2.47
+134,N1,Heracles,Excelsior,0.51,0.32,0.16,1.94,6.22,3.08
+131,N1,Almere City,Zwolle,0.39,0.48,0.13,2.59,7.54,2.08
+31,N1,Vitesse,AZ Alkmaar,0.34,0.5,0.16,2.91,6.4,2.0
+28,N1,Utrecht,Feyenoord,0.28,0.53,0.2,3.59,5.12,1.9
+29,N1,For Sittard,Ajax,0.24,0.65,0.11,4.11,9.27,1.54
+30,N1,Volendam,Twente,0.29,0.58,0.13,3.42,7.62,1.74
+173,N1,Sparta Rotterdam,Nijmegen,0.5,0.34,0.16,2.0,6.29,2.94
+138,P1,Benfica,Guimaraes,0.69,0.22,0.09,1.45,11.16,4.53
+137,P1,Portimonense,Estrela,0.4,0.4,0.2,2.48,5.1,2.49
+136,P1,Famalicao,Farense,0.5,0.32,0.19,2.01,5.39,3.16
+135,P1,Casa Pia,Rio Ave,0.49,0.35,0.16,2.06,6.22,2.83
+174,P1,Vizela,Gil Vicente,0.48,0.38,0.14,2.07,7.37,2.63
+33,P1,Estoril,Boavista,0.45,0.36,0.19,2.23,5.35,2.75
+34,P1,Porto,Arouca,0.71,0.21,0.08,1.4,12.41,4.88
+35,P1,Sp Braga,Sp Lisbon,0.4,0.45,0.15,2.5,6.46,2.25
+32,P1,Chaves,Moreirense,0.45,0.35,0.2,2.23,5.03,2.84
+36,SC0,Rangers,Celtic,0.45,0.42,0.13,2.21,7.95,2.37
+37,SC0,Aberdeen,Hibernian,0.47,0.36,0.17,2.13,5.85,2.78
+139,SC0,Kilmarnock,Ross County,0.52,0.33,0.15,1.94,6.58,3.01
+140,SC0,Livingston,St Mirren,0.4,0.42,0.18,2.48,5.52,2.41
+141,SC0,St Johnstone,Dundee,0.4,0.41,0.19,2.51,5.15,2.45
+38,SC0,Hearts,Motherwell,0.46,0.33,0.21,2.17,4.86,3.0
+145,SC1,Morton,Partick,0.44,0.41,0.15,2.3,6.56,2.43
+146,SC1,Raith Rvs,Queens Park,0.47,0.36,0.16,2.11,6.18,2.74
+143,SC1,Dundee United,Airdrie Utd,0.56,0.3,0.14,1.79,7.0,3.37
+144,SC1,Inverness C,Dunfermline,0.46,0.38,0.16,2.17,6.3,2.62
+142,SC1,Arbroath,Ayr,0.4,0.41,0.19,2.5,5.39,2.42
+147,SC2,Alloa,Cove Rangers,0.41,0.45,0.14,2.45,7.06,2.22
+148,SC2,Edinburgh City,Falkirk,0.24,0.56,0.2,4.15,4.93,1.8
+149,SC2,Kelty Hearts,Annan Athletic,0.57,0.3,0.13,1.75,7.52,3.37
+150,SC2,Queen of Sth,Montrose,0.53,0.33,0.14,1.89,6.9,3.06
+151,SC2,Stirling,Hamilton,0.39,0.45,0.16,2.57,6.09,2.24
+156,SC3,Stranraer,Peterhead,0.48,0.34,0.18,2.1,5.54,2.91
+154,SC3,Dumbarton,East Fife,0.52,0.34,0.14,1.93,7.0,2.96
+153,SC3,Clyde,Forfar,0.4,0.41,0.18,2.48,5.41,2.42
+152,SC3,Bonnyrigg Rose,Elgin,0.52,0.3,0.18,1.93,5.5,3.34
+155,SC3,Spartans,Stenhousemuir,0.48,0.32,0.2,2.09,5.09,3.08
+176,SP1,Almeria,Celta,0.38,0.44,0.17,2.6,5.86,2.25
+175,SP1,Cadiz,Villarreal,0.37,0.46,0.17,2.68,5.99,2.17
+42,SP1,Osasuna,Barcelona,0.3,0.54,0.16,3.29,6.37,1.85
+40,SP1,Mallorca,Ath Bilbao,0.37,0.44,0.2,2.73,5.1,2.29
+157,SP1,Sociedad,Granada,0.64,0.23,0.12,1.55,8.16,4.27
+160,SP1,Betis,Vallecano,0.49,0.33,0.17,2.03,5.74,3.0
+159,SP1,Alaves,Valencia,0.39,0.4,0.22,2.58,4.62,2.53
+158,SP1,Real Madrid,Getafe,0.73,0.21,0.06,1.37,17.13,4.7
+39,SP1,Girona,Las Palmas,0.58,0.3,0.12,1.73,8.42,3.28
+41,SP1,Ath Madrid,Sevilla,0.57,0.27,0.16,1.75,6.37,3.69
+45,T1,Ankaragucu,Fenerbahce,0.29,0.53,0.18,3.4,5.69,1.88
+163,T1,Antalyaspor,Kayserispor,0.46,0.37,0.17,2.19,5.8,2.7
+162,T1,Pendikspor,Alanyaspor,0.4,0.41,0.19,2.49,5.4,2.42
+161,T1,Buyuksehyr,Konyaspor,0.47,0.37,0.16,2.15,6.22,2.67
+46,T1,Hatayspor,Ad. Demirspor,0.37,0.49,0.14,2.69,7.02,2.06
+177,T1,Kasimpasa,Trabzonspor,0.41,0.45,0.14,2.45,7.22,2.21
+43,T1,Besiktas,Sivasspor,0.6,0.26,0.14,1.66,7.32,3.83
+44,T1,Samsunspor,Istanbulspor,0.48,0.34,0.18,2.08,5.53,2.95
+164,T1,Gaziantep,Galatasaray,0.23,0.63,0.14,4.27,7.21,1.59
+178,T1,Rizespor,Karagumruk,0.47,0.38,0.14,2.11,6.95,2.61

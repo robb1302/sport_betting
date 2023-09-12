@@ -59,8 +59,19 @@ def predict_matches(df):
     preds = pd.DataFrame(clf.predict_proba(df_scaled)[:,1],columns=["preds"])
 
     result_df = transform_and_merge(df = df, preds=preds)
+    result_df[["Fair Home Odd", "Fair Draw Odd", "Fair Away Odd"]] = np.round(1/result_df[["preds_home","preds_draw","preds_away"]],2)
+    result_df[["preds_home","preds_draw","preds_away"]]=round(result_df[["preds_home","preds_draw","preds_away"]],2)
+    rename_columns = {
+        "Home": "Home Team",
+        "Away": "Away Team",
+        "preds_home": "Home Prob",
+        "preds_draw": "Draw Prob",
+        "preds_away": "Away Prob"
+    }
 
-    
+    # Rename the DataFrame columns
+    result_df.columns = [rename_columns.get(col, col) for col in result_df.columns]    
+    result_df = result_df.sort_values('Div')
     return result_df
 
 # Example usage:
@@ -69,5 +80,6 @@ if __name__ == "__main__":
     df = load_team_opponent(filename_main=CONFIG.DATA_FOLDER_FIXTURES+"update.csv")
     
     result_df = predict_matches(df = df)
+
     result_df.to_csv(CONFIG.DATA_FOLDER_RESULTS+'results.csv')
     print('Done')
