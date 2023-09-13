@@ -1,0 +1,40 @@
+name: Update Fixtures Productive
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    - cron:  '0 17 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
+      timezone: 'Europe/London'  # Specify the British timezone
+
+jobs:
+  update-fixtures:
+    runs-on: windows-latest # Adjust the runner based on your requirements
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.4 
+
+    - name: Install Python Dependencies
+      run: |
+        pip install -r requirements.update.txt # Install packages from requirements.update.txt
+
+    - name: Run Batch Script
+      working-directory: .\
+      run:  .\scripts\batch_runs\workflow_update_streamlit_app.bat
+
+    - name: Git Actions
+      run: |
+        git config user.name "Robert Gerth"
+        git config user.email "robert.gerth@mail.de"
+        
+
+        cd .\data\results
+
+        git add results.csv
+        git commit -m "Add results.csv"
+        git push origin main
