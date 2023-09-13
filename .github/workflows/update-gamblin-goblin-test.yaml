@@ -1,4 +1,4 @@
-name: Update Streamlit Test App
+name: Update Streamlit App Development
 on:
   workflow_dispatch: # Allows manual triggering
 

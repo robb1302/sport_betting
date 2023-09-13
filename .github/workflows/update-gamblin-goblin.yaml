@@ -1,4 +1,4 @@
-name: Update Fixtures Productive
+name: Update Streamlit App Productive
 
 on:
   workflow_dispatch: # Allows manual triggering
