@@ -1,4 +1,3 @@
-import logging
 import os
 import sys
 import pandas as pd
@@ -19,6 +18,8 @@ def find_and_append_module_path():
         print("New current directory:", os.getcwd())
     else:
         print("No 'mypath' found in the current directory")
+
+
 def predict_matches(df):
 
 
@@ -42,18 +43,16 @@ if __name__ == "__main__":
 
     # Configure logging
     print("File:",os.getcwd())
-    # print("Dirs",os.listdir())
+
     # Create a StreamHandler to also log to the console
     print("find_and_append_module_path...")
     find_and_append_module_path()
+    
     import config as CONFIG
     from scripts.process_data.preprocess_team_opponent_deployment import (
         load_team_opponent, preprocess_data)
-    from src.data.provide_data import get_model_data
     from src.deploy.results import transform_and_merge
 
-    print("File:",os.getcwd())
-    
     print("Load Data...")
     df = load_team_opponent(filename_main=CONFIG.DATA_FOLDER_FIXTURES+"update.csv")
     print("Predict Matches...")

@@ -1,6 +1,5 @@
 import os
 import sys
-import logging
 
 def find_and_append_module_path():
     current_dir = os.getcwd()
@@ -21,14 +20,12 @@ def find_and_append_module_path():
 
 if __name__ == "__main__":
 
-    # Configure logging
-    print("File:",os.getcwd())
-    # print("Dirs",os.listdir())
     # Create a StreamHandler to also log to the console
     print("find_and_append_module_path...")
     find_and_append_module_path()
-    print("File:",os.getcwd())
+
     print("Import...")
     from src.data.download import download_fixtures
+
     print("Download...")
     download_fixtures(url="https://www.football-data.co.uk/fixtures.csv")

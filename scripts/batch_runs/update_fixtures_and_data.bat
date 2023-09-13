@@ -11,7 +11,7 @@ rem Führen Sie Ihren Befehl innerhalb der virtuellen Umgebung aus
 rem Zum Beispiel, Python-Skript ausführen:
 py .\scripts\main_workflows\01_download_raw_data.py --season 2324
 py .\scripts\provide_data\download_fixtures.py 
-py .\scripts\make_predictions\deploy_results.py 
+py .\scripts\deploy_results\make_predictions.py 
 streamlit run streamlit_app.py
 
 rem Deaktivieren Sie die virtuelle Umgebung, wenn Sie fertig sind
