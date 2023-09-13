@@ -41,16 +41,7 @@ def downloadLeague(liga="D1", season="1920"):
     data.to_csv(main_path + liga + '/season/' + liga + '_' + season + '.csv')
     return(data)
 
-
-# C:\Users\Robert\Documents\Projekte\dev\bettingTool\src\leagues\D1\season
-# Liest zu einer festgelegten Saison einer gewaehlten Liga die Saisondaten ein
-def readLeague(liga="D1", season="1920"):
-    main_path = CONFIG.DATA_FOLDER+"/src/leagues/"
-    os.chdir(main_path + liga + "/season")
-    dataframe = pd.read_csv(liga + "_" + season + ".csv") 
-    return dataframe
-
-def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.csv"):
+def download_fixtures( url:str = "https://www.football-data.co.uk/fixtures.csv"):
     
     print("start downloading fixtures...")
     try:
@@ -63,6 +54,14 @@ def download_fixtures(    url:str = "https://www.football-data.co.uk/fixtures.cs
     else:
         data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'update.csv')
         print("succesfull updated fixtures")
+
+@DeprecationWarning
+# Liest zu einer festgelegten Saison einer gewaehlten Liga die Saisondaten ein
+def readLeague(liga="D1", season="1920"):
+    main_path = CONFIG.DATA_FOLDER+"/src/leagues/"
+    os.chdir(main_path + liga + "/season")
+    dataframe = pd.read_csv(liga + "_" + season + ".csv") 
+    return dataframe
 
 @DeprecationWarning
 def download_next_matchday():

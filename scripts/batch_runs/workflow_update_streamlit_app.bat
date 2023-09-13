@@ -5,8 +5,8 @@ rem Activate the virtual environment if needed (adjust the path accordingly)
 call D:\a\sport_betting\.venv\Scripts\activate.bat
 
 rem Execute your Python script within the virtual environment
-py .\scripts\workflows\update_fixtures_workflow.py
-py .\scripts\workflows\deploy_results_workflow.py
+py .\scripts\provide_data\download_fixtures.py
+py .\scripts\deploy_results\make_predictions.py
 
 rem Deactivate the virtual environment (if activated)
 call D:\a\sport_betting\.venv\Scripts\deactivate.bat
