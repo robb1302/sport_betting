@@ -1,5 +1,4 @@
-name: Update Fixtures Dev
-
+name: Update Streamlit App Development
 on:
   workflow_dispatch: # Allows manual triggering
 
