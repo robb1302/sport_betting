@@ -12,23 +12,13 @@ def find_and_append_module_path():
 find_and_append_module_path()
 
 
-from src.utils.utils import createDirs
 import config as CONFIG
-import logging
 
 from src.features import load_team_opponent
-from src.features.preprocess import derived_odds,get_bookmaker, get_odd_pred_team_opponent, split_date,add_last_3_scores_column
 import numpy as np
 import pandas as pd
 
 # Import preprocessing functions
-from src.features.preprocess import (
-    derived_odds, get_bookmaker, get_odd_pred_team_opponent,
-    split_date, add_last_3_scores_column
-)
-
-# Import necessary configurations
-import config as CONFIG
 from src.data.provide_data import get_model_data
 from scripts.process_data.preprocess_team_opponent_deployment import preprocess_data,load_team_opponent
 from src.deploy.results import transform_and_merge
