@@ -16,7 +16,6 @@ import pandas as pd
 
 def main(results,fixtures):
 
-    print(fixtures.head())
     # Merge dataframes
     df = results.merge(fixtures, left_on=['Home Team', 'Div'], right_on=['HomeTeam', 'Div'], how='inner')[
         ['Div', 'Home Team', 'Away Team', 'Home Prob', 'Away Prob', 'Draw Prob', 'AvgH', 'AvgD', 'AvgA',
@@ -28,8 +27,11 @@ def main(results,fixtures):
     df['AvgA/Fair Away Odd'] = df['AvgA'] / df['Fair Away Odd']
 
     # Filter data
-    df_away = df[(df['AvgA/Fair Away Odd'] > 1) & (df["Away Prob"] > 0.45)]
-    df_home = df[(df['AvgH/Fair Home Odd'] > 1) & (df["Home Prob"] > 0.45)]
+    potential_away_bets = (df['AvgA/Fair Away Odd'] > 1) & (df["Away Prob"] > 0.45)
+    df_away = df[potential_away_bets]
+
+    potential_home_bets = (df['AvgH/Fair Home Odd'] > 1) & (df["Home Prob"] > 0.45)
+    df_home = df[potential_home_bets]
 
     # Create copies of df_away and df_home to avoid the SettingWithCopyWarning
     df_away = df_away.copy()
@@ -44,7 +46,7 @@ def main(results,fixtures):
 
     # Concatenate the modified dataframes
     betting_slip = pd.concat([df_away, df_home], axis=0)[["Div", "Home Team", "Away Team", "bet on", "potential"]]
-
+    betting_slip = betting_slip.dropna()
     # Sort the betting slip by 'potential' in descending order
     betting_slip = betting_slip.sort_values('potential', ascending=False)
 
