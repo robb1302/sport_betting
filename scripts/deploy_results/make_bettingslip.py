@@ -1,3 +1,5 @@
+import pandas as pd
+
 def find_and_append_module_path():
     import sys
     import os
@@ -8,11 +10,7 @@ def find_and_append_module_path():
     if index != -1:
         parent_dir = os.path.join(current_directory[:index], substring_to_find)
         sys.path.append(parent_dir)
-find_and_append_module_path()
 
-
-import config as CONFIG
-import pandas as pd
 
 def main(results,fixtures):
 
@@ -57,6 +55,10 @@ if __name__ == "__main__":
     # Read data from CSV file
     print()
     print("####BETTING SLIP#####")
+    print("find_and_append_module_path...")
+    find_and_append_module_path()
+    print('import...')
+    import config as CONFIG
     print("read results and fixtures...")
     results = pd.read_csv(f"{CONFIG.DATA_FOLDER_RESULTS}results.csv", index_col=0)
     fixtures = pd.read_csv(f"{CONFIG.DATA_FOLDER_FIXTURES}update.csv", index_col=0)
