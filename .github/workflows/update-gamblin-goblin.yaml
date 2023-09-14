@@ -3,11 +3,11 @@ name: Update Streamlit App Productive
 on:
   workflow_dispatch: # Allows manual triggering
   schedule:
-    - cron:  '0 17 * * 2,5' # Runs every Tuesday and Friday at 4 PM UTC
+    - cron: '0 17 * * 2,5' # Runs every Tuesday and Friday at 5 PM UTC
       timezone: 'Europe/London'  # Specify the British timezone
 
 jobs:
-  update-fixtures:
+  update-results:
     runs-on: windows-latest # Adjust the runner based on your requirements
 
     steps:
@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11.4 
+        python-version: 3.11.4
 
     - name: Install Python Dependencies
       run: |
@@ -25,22 +25,24 @@ jobs:
 
     - name: Run Batch Script
       working-directory: .\
-      run:  .\scripts\batch_runs\workflow_update_streamlit_app.bat
+      run: .\scripts\batch_runs\workflow_update_streamlit_app.bat
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "Robert Gerth"
+        git config --global user.email "robert.gerth@mail.de"
 
     - name: Git Actions
       run: |
-        git config user.name "Robert Gerth"
-        git config user.email "robert.gerth@mail.de"
-
         cd .\data\results
 
         # Add the first CSV file
         git add results.csv
-        git commit -m "Add results.csv"
+        git commit -m "Update results.csv"
 
         # Add the second CSV file
         git add betting_slip.csv
-        git commit -m "Add betting_slip.csv"
+        git commit -m "Update betting_slip.csv"
 
         # Push the changes to the 'main' branch
-        git push origin main
+        git push origin HEAD:main
