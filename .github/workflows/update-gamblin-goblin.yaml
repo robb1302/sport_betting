@@ -7,7 +7,7 @@ on:
       timezone: 'Europe/London'  # Specify the British timezone
 
 jobs:
-  update-results:
+  update-streamlit-app:
     runs-on: windows-latest # Adjust the runner based on your requirements
 
     steps:
@@ -21,28 +21,31 @@ jobs:
 
     - name: Install Python Dependencies
       run: |
-        pip install -r requirements.update.txt # Install packages from requirements.update.txt
+        # Install packages from requirements.update.txt
+        pip install -r requirements.update.txt
 
     - name: Run Batch Script
       working-directory: .\
-      run: .\scripts\batch_runs\workflow_update_streamlit_app.bat
+      run: |
+        # Run the batch script to update the Streamlit app
+        .\scripts\batch_runs\workflow_update_streamlit_app.bat
 
     - name: Configure Git
       run: |
+        # Configure Git with user information
         git config --global user.name "Robert Gerth"
         git config --global user.email "robert.gerth@mail.de"
 
-    - name: Git Actions
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: "Update Streamlit App"
+        body: "This pull request updates the Streamlit app."
+        branch: update-streamlit-app # Replace with your branch name
+        base: main # The branch you want to merge into (main)
+
+    - name: Complete Workflow
       run: |
-        cd .\data\results
+        # Print a message indicating the workflow is complete
+        echo "Workflow completed."
 
-        # Add the first CSV file
-        git add results.csv
-        git commit -m "Update results.csv"
-
-        # Add the second CSV file
-        git add betting_slip.csv
-        git commit -m "Update betting_slip.csv"
-
-        # Push the changes to the 'main' branch
-        git push origin HEAD:main
