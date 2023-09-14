@@ -41,6 +41,10 @@ def predict_matches(df):
     result_df["Fair Draw Odd"] = round( 1/result_df.preds_draw,2)
     result_df["Fair Away Odd"] = round( 1/result_df.preds_away,2)
 
+    result_df.preds_home = round(result_df.preds_home,2)
+    result_df.preds_draw = round(result_df.preds_draw,2)
+    result_df.preds_away = round(result_df.preds_away,2)
+
     # Rename the columns based on the specified dictionary
     rename_columns = {
         "Home": "Home Team",
