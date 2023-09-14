@@ -53,7 +53,7 @@ def download_fixtures( url:str = "https://www.football-data.co.uk/fixtures.csv")
         FileNotFoundError(f"The file or directory '{CONFIG.DATA_FOLDER_FIXTURES}' does not exist.")
     else:
         data.to_csv(CONFIG.DATA_FOLDER_FIXTURES+'update.csv')
-        print("succesfull updated fixtures")
+        print("succesfully updated fixtures")
 
 @DeprecationWarning
 # Liest zu einer festgelegten Saison einer gewaehlten Liga die Saisondaten ein

@@ -16,7 +16,7 @@ import pandas as pd
 
 def main(results,fixtures):
 
-
+    print(fixtures.head())
     # Merge dataframes
     df = results.merge(fixtures, left_on=['Home Team', 'Div'], right_on=['HomeTeam', 'Div'], how='inner')[
         ['Div', 'Home Team', 'Away Team', 'Home Prob', 'Away Prob', 'Draw Prob', 'AvgH', 'AvgD', 'AvgA',
@@ -52,9 +52,16 @@ def main(results,fixtures):
 
 if __name__ == "__main__":
     
-    # Read data from CSV files
+    # Read data from CSV file
+    print()
+    print("####BETTING SLIP#####")
+    print("read results and fixtures...")
     results = pd.read_csv(f"{CONFIG.DATA_FOLDER_RESULTS}results.csv", index_col=0)
     fixtures = pd.read_csv(f"{CONFIG.DATA_FOLDER_FIXTURES}update.csv", index_col=0)
 
+    print("make betting slips...")
     betting_slip = main(results,fixtures)
+
+    print("save data...")
     betting_slip.to_csv(f"{CONFIG.DATA_FOLDER_RESULTS}betting_slip.csv",index=False)
+    print("sucessfully created betting slip.")

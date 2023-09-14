@@ -27,10 +27,16 @@ jobs:
       run: |
         git config user.name "Robert Gerth"
         git config user.email "robert.gerth@mail.de"
-        
 
         cd .\data\results
 
+        # Add the first CSV file
         git add results.csv
         git commit -m "Add results.csv"
+
+        # Add the second CSV file
+        git add betting_slip.csv
+        git commit -m "Add betting_slip.csv"
+
+        # Push the changes to the 'dev' branch
         git push origin dev
