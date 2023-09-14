@@ -1,15 +1,23 @@
+import os
+import sys
 import pandas as pd
 
 def find_and_append_module_path():
-    import sys
-    import os
-    current_directory = os.getcwd()
+    current_dir = os.getcwd()
     substring_to_find = 'sport_betting'
-    index = current_directory.find(substring_to_find)
+    index = current_dir.rfind(substring_to_find)
     
     if index != -1:
-        parent_dir = os.path.join(current_directory[:index], substring_to_find)
-        sys.path.append(parent_dir)
+        # Extract the directory path up to and including the last "mypath" occurrence
+        new_dir = current_dir[:index + (len(substring_to_find))]
+
+        # Change the current working directory to the new directory
+        os.chdir(new_dir)
+        sys.path.append(new_dir)
+        # Verify the new current directory
+        print("New current directory:", os.getcwd())
+    else:
+        print("No 'mypath' found in the current directory")
 
 
 def main(results,fixtures):
