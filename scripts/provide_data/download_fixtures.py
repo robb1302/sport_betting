@@ -19,7 +19,8 @@ def find_and_append_module_path():
         print("No 'mypath' found in the current directory")
 
 if __name__ == "__main__":
-
+    print()
+    print("####Download Fixtures####")
     # Create a StreamHandler to also log to the console
     print("find_and_append_module_path...")
     find_and_append_module_path()

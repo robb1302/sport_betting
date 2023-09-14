@@ -37,10 +37,26 @@ def predict_matches(df):
     preds = pd.DataFrame(clf.predict_proba(df_scaled)[:,1],columns=["preds"])
 
     result_df = transform_and_merge(df = df, preds=preds)
+    result_df["Fair Home Odd"] = round(1/result_df.preds_home,2)
+    result_df["Fair Draw Odd"] = round( 1/result_df.preds_draw,2)
+    result_df["Fair Away Odd"] = round( 1/result_df.preds_away,2)
+
+    # Rename the columns based on the specified dictionary
+    rename_columns = {
+        "Home": "Home Team",
+        "Away": "Away Team",
+        "preds_home": "Home Prob",
+        "preds_draw": "Draw Prob",
+        "preds_away": "Away Prob"
+    }
+
+    # Rename the DataFrame columns
+    result_df.columns = [rename_columns.get(col, col) for col in result_df.columns]
     return result_df
 
 if __name__ == "__main__":
-
+    print()
+    print("####PREDICT OUTCOME#####")
     # Configure logging
     print("File:",os.getcwd())
 
@@ -56,5 +72,6 @@ if __name__ == "__main__":
     print("Load Data...")
     df = load_team_opponent(filename_main=CONFIG.DATA_FOLDER_FIXTURES+"update.csv")
     print("Predict Matches...")
-    predict_matches(df = df)
+    result_df = predict_matches(df = df)
+    result_df.to_csv(f"{CONFIG.DATA_FOLDER_RESULTS}results.csv")
     print("sucessfully predicted")

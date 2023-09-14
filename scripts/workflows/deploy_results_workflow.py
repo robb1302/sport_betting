@@ -36,7 +36,7 @@ def predict_matches(df):
     clf = pickle.load(open(CONFIG.DATA_FOLDER_MODELS+"xgb.pkl","rb"))
     preds = pd.DataFrame(clf.predict_proba(df_scaled)[:,1],columns=["preds"])
 
-    result_df = transform_and_merge(df = df, preds=preds)
+    # result_df = transform_and_merge(df = df, preds=preds)
     return result_df
 
 if __name__ == "__main__":
