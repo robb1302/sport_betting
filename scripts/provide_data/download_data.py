@@ -26,8 +26,8 @@ def find_and_append_module_path():
     else:
         print("No 'mypath' found in the current directory")
 
-def main(league=None, season=None):
-
+def download_raw_data(league=None, season=None):
+    import config as CONFIG
     if type(season) is str:
         season = [season]
 
@@ -82,11 +82,11 @@ def main(league=None, season=None):
 
 if __name__ == "__main__":
     find_and_append_module_path()
-    
     import config as CONFIG
+    
     parser = argparse.ArgumentParser(description="Download data for a specific league and season.")
     parser.add_argument("--league", help="Specify the league to download data for (e.g., 'EPL').",default=CONFIG.MAIN_LEAGUES)
     parser.add_argument("--season", help="Specify the season to download data for (e.g., '2324').",default="2324")
     args = parser.parse_args()
 
-    main(args.league, args.season)
+    download_raw_data(args.league, args.season)

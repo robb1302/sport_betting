@@ -1,7 +1,10 @@
 import pickle
+
+import numpy as np
 import pandas as pd
+
 import config as CONFIG
-import numpy as np 
+
 
 def load_team_opponent(filename_main:str):
 
@@ -33,7 +36,7 @@ def load_team_opponent(filename_main:str):
     df_team_opponent = pd.concat([df_home,df_away],axis=0)
     return df_team_opponent
 
-import pandas as pd
+
 
 def split_date(df):
     """
@@ -50,7 +53,7 @@ def split_date(df):
     - If the 'Date' column contains years with only two digits (e.g., 'yy' instead of 'yyyy'),
       it assumes years less than 2000 should be interpreted as '20yy'.
     """
-def split_date(df):
+
     if 'Date' in df.columns:
         new_date = (df["Date"].str.split("/",expand=True))
         new_date.columns = ["day","month","year"]
@@ -97,16 +100,6 @@ def get_odd_pred_team_opponent(bet,df):
     odd_pred[bet+"_Team_draw_pred"]=odd_draw/sum_odds
     
     return odd_pred
-
-
-import pandas as pd
-
-import pandas as pd
-
-import pandas as pd
-import numpy as np
-
-import pandas as pd
 
 def add_last_3_scores_column(df, score_column, home_or_away='general',anz_games = 3):
     
